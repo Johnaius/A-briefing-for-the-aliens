@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@700&display=swap" rel="stylesheet">
+    <title>A Briefing for the Aliens</title>
+</head>
+<body>
+    
+    <body>
+        <header>
+            <h1>CATS!</h1>
+        </header>
+        <div>
+        <section class="text">
+            <h2>{{ cat_fact }}</h2>
+            
+        </section>
+        <section class = 'image'>
+            <img src="{{ cat_pic }}" alt="Random Cat">
+            
+            <h3></h3>
+
+            <img id="right" src="{{ cat_pic2 }}" alt="Another Random Cat">
+
+        </section>
+    </div>
+        
+    </body>
+</html>
