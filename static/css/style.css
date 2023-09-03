@@ -12,29 +12,41 @@
 /*******************************************/
 
 html {
-  background: url('https://mkpcdn.com/1000x/a8f36f59d285c4dc8ee870311e026c86_231877.jpg') no-repeat center center fixed;
-  -webkit-background-size: cover;
+  background: url('https://mkpcdn.com/1000x/a8f36f59d285c4dc8ee870311e026c86_231877.jpg') no-repeat center fixed;
+  -webkit-background-size: ;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }
 
 img {
-
   margin: 0 auto;
   width: 25%;
-  height: 50%
+  height: 50%;
+  margin-top: 1em;
 }
 
-.text,
+
+
+
 header {
   display: flex;
   justify-content: space-around;
-
 }
 
 .text {
-  color: blanchedalmond
+  color: blanchedalmond;
+  width: 85%;
+}
+
+.refresh {
+  display: flex;
+  justify-content: center;
+}
+
+h2 {
+  display: flex;
+  justify-content: center;
 }
 
 .image {
@@ -64,16 +76,18 @@ h1 {
 /******************************************
 /* ADDITIONAL STYLES
 /*******************************************/
-@media (max-width: 800px) {
-
-  .image,
-  .right {
+@media (max-width: 768px) {
+  .image {
     display: flex;
-    margin-top: 100%;
-
+    /* Change the layout to a flexbox */
+    flex-direction: column;
+    /* Stack images vertically */
   }
 
-
+  .image img {
+    margin: 0 auto;
+    margin-bottom: 10px;
+    /* Add some space between stacked images */
+    width: 50%;
+  }
 }
-
-/* @media screen and (min-width: 425px) ) */

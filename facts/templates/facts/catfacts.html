@@ -16,22 +16,23 @@
         <header>
             <h1>CATS!</h1>
             
-            <a href="{{ request.get_full_path }}"><button>Click me</button></a>
+            
         </header>
-        <div>
+            <a href="{{ request.get_full_path }}" class="refresh"><button>Click me</button></a>
+        
         <section class="text">
             <h2>{{ cat_fact }}</h2>
             
         </section>
         <section class = 'image'>
-            <img src="{{ cat_pic }}" alt="Random Cat">
+            <img id="left"src="{{ cat_pic }}" alt="Random Cat">
             
             <h3></h3>
 
             <img id="right" src="{{ cat_pic2 }}" alt="Another Random Cat">
 
         </section>
-    </div>
+    
         
     </body>
 </html>
