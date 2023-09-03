@@ -90,4 +90,8 @@ h1 {
     /* Add some space between stacked images */
     width: 50%;
   }
+
+  .text {
+    background-color: black;
+  }
 }
