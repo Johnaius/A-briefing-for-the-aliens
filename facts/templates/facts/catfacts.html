@@ -11,14 +11,13 @@
     <title>A Briefing for the Aliens</title>
 </head>
 <body>
-    
-    <body>
         <header>
             <h1>CATS!</h1>
             
             
         </header>
             <a href="{{ request.get_full_path }}" class="refresh"><button>Click me</button></a>
+            <a href="{% url 'math_gen' %}" class="refresh"><button>Maths!</button></a>
         
         <section class="text">
             <h2>{{ cat_fact }}</h2>

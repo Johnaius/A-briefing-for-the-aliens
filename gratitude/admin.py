@@ -9,3 +9,4 @@ class GratitudeAdmin(admin.ModelAdmin):
         "title",
         
     )
+

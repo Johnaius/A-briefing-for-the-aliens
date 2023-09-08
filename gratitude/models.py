@@ -8,11 +8,18 @@ class Gratitude(models.Model):
     three = models.CharField(max_length=150)
     four = models.CharField(max_length=150)
     five = models.CharField(max_length=150)
+    image = CloudinaryField('image')
 
     def __str__(self):
         return self.title
 
-class Photo(models.Model):
-  image = CloudinaryField('image')
+
+  
+
+# @property
+# def image_url(self):
+#     return (
+#         f"https://res.cloudinary.com/johnaius/{self.image}"
+#     )
 
 

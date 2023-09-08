@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@700&display=swap" rel="stylesheet">
+        <script>
+            document.getElementById('userInput').addEventListener('input', function() {
+                const userInput = parseInt(this.value);
+                const answer = {{ answer }};  // Access the answer from the view
+    
+                if (!isNaN(userInput) && userInput === answer) {
+                    this.style.color = 'green';  // Change font color to green for correct answer
+                } else {
+                    this.style.color = '';  // Reset font color for incorrect answer
+                }
+            });
+        </script>
+        
+        <title>Math for the Little Ones</title>
+    </head>
+    <body>
+        <!-- templates/quiz/math_problems.html -->
+<!-- templates/quiz/math_problems.html -->
+
+        <form method="post" >
+            {% csrf_token %}
+            <div class="math-problems">
+                {% for problem in problems %}
+                    <div class="problem" data-problem-id="{{ problem.id }}">
+                        <div class="top-number">{{ problem.num1 }}</div>
+                        
+                        <div class="bottom-number">+{{ problem.num2 }}</div>
+                        <hr class="bottom-line"> <!-- Add a horizontal line beneath the bottom number -->
+                        {{ problem.user_response }}
+                        <div class="bottom-number">
+                            <input id="userInput" type="number" name="response{{ problem.id }}" value="{{ problem.user_response }}">
+                            <p hidden>{{  problem.answer }}</p>
+                            </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <input type="submit" value="Submit">
+        </form>
+      
+    </body>
+</html>
+

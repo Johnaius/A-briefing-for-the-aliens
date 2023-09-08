@@ -35,7 +35,7 @@ header {
 }
 
 .text {
-  color: blanchedalmond;
+  background-color: rgba(0, 0, 0, 0.263);
   width: 85%;
 }
 
@@ -73,6 +73,20 @@ h1 {
   font-family: 'Noto Serif', serif;
 }
 
+
+.problem {
+  margin-bottom: 10px;
+
+  color: black;
+  font-weight: bold;
+}
+
+.problem-correct {
+  border: 2px solid green;
+
+}
+
+
 /******************************************
 /* ADDITIONAL STYLES
 /*******************************************/
@@ -89,5 +103,10 @@ h1 {
     margin-bottom: 10px;
     /* Add some space between stacked images */
     width: 50%;
+  }
+
+
+  .text {
+    background-color: rgba(0, 0, 0, 0.263);
   }
 }

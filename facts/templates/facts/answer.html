@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Submission Result</title>
+    <!-- Include your CSS styles here if needed -->
+</head>
+<body>
+    <h1>Submission Result</h1>
+
+    <h2>Summary</h2>
+    <p>Total Correct Responses: {{ num_correct }}</p>
+    <p>Total Incorrect Responses: {{ num_wrong }}</p>
+
+    <h2>Responses for Each Problem</h2>
+    <ul>
+        {% for problem_id, response_data in user_responses.items %}
+            <li>
+                <strong>Problem {{ problem_id }}</strong>
+                <ul>
+                    <li>User Response: {{ response_data.user_response }}</li>
+                    <li>Correct Answer: {{ response_data.correct_answer }}</li>
+                    <li>
+                        {% if response_data.is_correct %}
+                            <span style="color: green;">Correct</span>
+                        {% elif response_data.is_correct is False %}
+                            <span style="color: red;">Incorrect</span>
+                        {% else %}
+                            No Response
+                        {% endif %}
+                    </li>
+                </ul>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'math_gen' %}" class="back-to-math-gen">Back to Math Problems</a>
+</body>
+</html>

@@ -1,5 +1,5 @@
 from django.forms import ModelForm
-from .models import Gratitude, Photo
+from .models import Gratitude
 
 class GratitudeForm(ModelForm):
     class Meta:
@@ -11,12 +11,10 @@ class GratitudeForm(ModelForm):
             'three',
             'four',
             'five',
+            'image',
         )
 
-class PhotoForm(ModelForm):
-  class Meta:
-    model = Photo
-    fields =('image',)
+
     
 
 

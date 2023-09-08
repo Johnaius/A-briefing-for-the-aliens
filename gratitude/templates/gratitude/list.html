@@ -1,24 +1,27 @@
-
-
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
 <main>
-    <h1>Meat and Melons</h1>
+    <h1>Gratitude</h1>
     <h2>All the food that's fit to eat</h2>
     <div class="recipe-grid">
       {% load static %}
-        {% for recipe in recipe_list %}
+        {% for text in thanks %}
         <div>
           <h3>
-            <a href="{% url 'show_recipe' recipe.id %}">{{recipe.title}}</a>
-            
+            {{text.title}}
           </h3>
-          <p> Created on: {{ recipe.created_on | date:'j F Y'}}</p>
-          <img src='{{recipe.picture|default:"https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8NHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60"}}'>
+          <img src='{{text.image | default:"https://riverheadlocal.com/wp-content/uploads/2019/03/2019_0310_sunshine.jpg"}}'>
           <div>4.3 stars</div>
         </div>
         {% endfor %}
       </div>
   </main>
-  {% endblock content %}
+  
 </body>
 </html>
