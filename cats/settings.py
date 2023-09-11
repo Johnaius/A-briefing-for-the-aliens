@@ -58,6 +58,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+CSRF_TRUSTED_ORIGINS = ['https://a-briefing-for-the-aliens.up.railway.app/']
 
 ROOT_URLCONF = 'cats.urls'
 
