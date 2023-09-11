@@ -1,0 +1,22 @@
+{% extends 'homebase.html' %}
+
+{% block title %}
+    Gratitude
+{% endblock title %}
+
+{% block navlink %}
+<a href="{% url 'math_gen' %}" class="refresh"><button>Maths!</button></a>
+<a href="{% url 'cat_fact' %}" class="refresh"><button>Cats!</button></a>
+{% endblock navlink %}
+{% block content %}
+<div class="hero min-h-screen bg-base-200">
+    <div class="hero-content text-center">
+      <div class="max-w-md">
+        <h1 class="text-5xl font-bold">Gratitude</h1>
+        <p class="py-6">Elevate your daily happiness with our gratitude journal app, where logging your moments of gratitude has never been easier or more rewarding.</p>
+        <a href="{% url 'login' %}"><button class="btn btn-primary bg-accent" >Login</button></a>
+        <a href="{% url 'signup' %}"><button class="btn btn-primary bg-accent" >Signup</button></a>
+      </div>
+    </div>
+  </div>
+{% endblock content %}

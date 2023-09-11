@@ -1,27 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-<main>
-    <h1>Gratitude</h1>
-    <h2>All the food that's fit to eat</h2>
-    <div class="recipe-grid">
+{% extends 'homebase.html' %}
+
+{% block title %}
+    All Posts
+{% endblock title %}
+{% block content %}
       {% load static %}
-        {% for text in thanks %}
-        <div>
-          <h3>
-            {{text.title}}
-          </h3>
-          <img src='{{text.image | default:"https://riverheadlocal.com/wp-content/uploads/2019/03/2019_0310_sunshine.jpg"}}'>
-          <div>4.3 stars</div>
+
+<main class="bg-gray-100 min-h-screen py-8">
+  <div class="container mx-auto flex flex-wrap justify-center">
+    {% for text in thanks %}
+    <div class="card w-96 bg-base-100 shadow-xl image-full m-2">
+      <figure><img src="{{ text.image.url }}" alt="{{ text.title }}"/></figure>
+      <div class="card-body">
+        <h2 class="card-title text-white">{{ text.title }}</h2>
+        <p>{{ text.four }}</p>
+        <span>Created: {{ text.date|date:"m/d/y" }}</span>
+        <div class="card-actions justify-end">
+          <a href="{% url 'show_detail' text.id %}"><button class="btn btn-accent">By: {{ text.owner }} </button></a>
         </div>
-        {% endfor %}
       </div>
-  </main>
+    </div>
+    {% endfor %}
+  </div>
+</main>
+
+    
   
-</body>
-</html>
+{% endblock %}

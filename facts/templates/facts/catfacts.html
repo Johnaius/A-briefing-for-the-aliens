@@ -1,23 +1,15 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@700&display=swap" rel="stylesheet">
-    <title>A Briefing for the Aliens</title>
-</head>
-<body>
-        <header>
-            <h1>CATS!</h1>
-            
-            
-        </header>
-            <a href="{{ request.get_full_path }}" class="refresh"><button>Click me</button></a>
-            <a href="{% url 'math_gen' %}" class="refresh"><button>Maths!</button></a>
+{% extends 'base.html' %}
+
+{% block title %}
+    A briefing for the Aliens
+{% endblock title %}
+
+{% block h1 %} Cats! {% endblock h1 %}
+{% block navlink %}
+<a href="{% url 'math_gen' %}" class="refresh"><button>Maths!</button></a>
+{% endblock navlink %}
+{% block content %}
+       
         
         <section class="text">
             <h2>{{ cat_fact }}</h2>
@@ -33,5 +25,4 @@
         </section>
     
         
-    </body>
-</html>
+{% endblock content %}

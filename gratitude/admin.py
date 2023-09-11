@@ -7,6 +7,10 @@ from .models import Gratitude
 class GratitudeAdmin(admin.ModelAdmin):
     list_display = (
         "title",
-        
+        "one",
+        "two",
+        "three",
+        "four",
+        "image",
     )
 

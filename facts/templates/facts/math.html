@@ -1,13 +1,14 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="{% static 'css/style.css' %}">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@700&display=swap" rel="stylesheet">
+{% extends 'base.html' %}
+
+{% block title %}
+    A briefing for the Aliens
+{% endblock title %}
+
+{% block h1 %} Maths! {% endblock h1 %}
+{% block navlink %}
+<a href="{% url 'cat_fact' %}" class="refresh"><button>Cats!</button></a>
+{% endblock navlink %}
+{% block content %}
         <script>
             document.getElementById('userInput').addEventListener('input', function() {
                 const userInput = parseInt(this.value);
@@ -46,7 +47,6 @@
             </div>
             <input type="submit" value="Submit">
         </form>
-      
-    </body>
-</html>
+{% endblock content %}
+
 

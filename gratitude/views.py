@@ -1,15 +1,19 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Gratitude
 from .forms import GratitudeForm
 from django.http import HttpResponse
-from cloudinary.forms import cl_init_js_callbacks 
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
+
+def home(request):
+    return render(request, 'gratitude/home.html')
+
+@login_required
 def create_thanks(request):
     
     if request.method == "POST":
         form = GratitudeForm(request.POST, request.FILES)
-        print(form.cleaned_data())
         if form.is_valid():
             print("Hurrah! form worked")
             form.save() 
@@ -25,9 +29,33 @@ def create_thanks(request):
    
     return render(request, 'gratitude/create.html', context)
 
+
+@login_required
 def thanks_list(request):
     thanks = Gratitude.objects.all()
+    print(thanks)
     context ={
         'thanks' : thanks,
     }
     return render(request, "gratitude/list.html", context)
+
+
+@login_required
+def my_list(request):
+    thanks = Gratitude.objects.filter(owner=request.user)
+    context ={
+        'thanks' : thanks,
+    }
+    return render(request, "gratitude/mine.html", context)
+
+
+@login_required
+def show_detail(request, id):
+    # get data from database
+    thanks = get_object_or_404(Gratitude, id=id)
+    # put data in context
+    context = {
+        "thanks": thanks,
+    }
+    # render HTML with data in contexts
+    return render(request, "gratitude/detail.html", context)

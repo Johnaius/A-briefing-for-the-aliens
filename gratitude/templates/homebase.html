@@ -1,0 +1,70 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@700&display=swap" rel="stylesheet">
+        <link
+        href="https://cdn.jsdelivr.net/npm/daisyui@2.6.0/dist/full.css"
+        rel="stylesheet"
+        type="text/css"
+      />
+      <script src="https://cdn.tailwindcss.com"></script>
+        
+        <title>
+            {% block title %}
+            {% endblock title %}
+        </title>
+    </head>
+    <body>
+        <header>
+            <h1>{% block h1 %} {% endblock h1 %}</h1>
+            <nav>
+                <div class="navbar bg-accent">
+                    <div class="flex-1">
+                      <a class="btn btn-ghost normal-case text-xl text-black" href="{% url 'home' %}">Thanks!</a>
+                    </div>
+                    <div class="flex-none">
+                      <ul class="menu menu-horizontal px-1">
+                        <li><a></a></li>
+                        <li>
+                          <details>
+                            <summary class="text-black">
+                              Menu
+                            </summary>
+                            <ul class="p-2 bg-base-100"> 
+                              
+                              {% if user.is_authenticated %}
+                              <li>Hi,  {{request.user}}</li>
+                              <li><a href="{% url 'create_thanks' %}" class="refresh">Create Gratitude</a></li>
+                              <li><a href="{% url 'thanks_list' %}" class="refresh">See All Gratitudes</a></li>
+                              <li><a href="{% url 'my_list' %}" class="refresh">My Gratitude</a></li>
+                              <li><a href="{% url 'cat_fact' %}" class="refresh">Cats!</a></li>
+                              <li><a href="{% url 'logout' %}" class="refresh">Logout</a></li>
+
+                              {% else %}
+                              <li><a href="{% url 'cat_fact' %}" class="refresh">Cats!</a></li>
+                              <li><a href="{% url 'math_gen' %}" class="refresh">Maths!</a></li>
+                              <li><a href="{% url 'login' %}" class="refresh">Login!</a></li>
+                              <li><a href="{% url 'signup' %}" class="refresh">Signup!</a></li>
+
+                              {% endif %}
+                            </ul>
+                          </details>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+            </nav>
+        </header>
+            
+        {% block content %}
+        
+        {% endblock content %}
+    </body>
+</html>

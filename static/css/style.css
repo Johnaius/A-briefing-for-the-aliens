@@ -19,6 +19,48 @@ html {
   background-size: cover;
 }
 
+header {
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Center the h1 element */
+header h1 {
+  text-align: center;
+}
+
+/* Style the nav element */
+header nav {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start
+}
+
+/* Style the individual links (a) within the nav */
+header nav a {
+  text-decoration: none;
+  /* Remove underline from links */
+  margin-right: 10px;
+  /* Add some spacing between links */
+}
+
+/* Style the buttons within the links */
+header nav a button {
+  padding: 5px 10px;
+  /* background-color: #3498db; */
+  /* Change this to your desired button color */
+
+  /* Change this to your desired button text color */
+  border: black;
+  cursor: crosshair;
+}
+
+/* Optional: Add hover effect for buttons */
+header nav a button:hover {
+  background-color: #2980b9;
+  /* Change this to your desired hover color */
+}
+
 img {
   margin: 0 auto;
   width: 25%;

@@ -1,21 +1,79 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-<main>
-    <div>
-        <h1>Create Gratitude</h1>
-        <form method="post">
+{% extends 'homebase.html' %}
+
+{% block title %}
+    Show Gratitude
+{% endblock title %}
+{% block content %}
+      {% load static %}
+      <div class="min-h-screen flex items-center justify-center">
+        <div class="bg-white p-8 rounded shadow-lg w-96">
+            <h1 class="text-3xl font-bold text-black mb-4">Create Gratitude</h1>
+            <form method="post" enctype="multipart/form-data" class="text-black">
                 {% csrf_token %}
-                {{ form.as_p }}
-                {{ photo.as_p}}
-            <button>Create</button>
-        </form>
+                
+                <div class="mb-4">
+                    <label for="{{ form.title.id_for_label }}" class="block text-md font-medium text-gray-700"></label>
+                    <input
+                        type="{{ form.title.field.widget.input_type }}"
+                        name="{{ form.title.name }}"
+                        id="{{ form.title.id_for_label }}"
+                        class="px-3 py-2 border rounded-md w-full focus:outline-none focus:ring focus:border-blue-500"
+                        placeholder="where is your head at right now?"
+                    >
+                </div>
+                <div class="mb-4">
+                    <label for="{{ form.one.id_for_label }}" class="block text-md font-medium text-gray-700"></label>
+                    <input
+                        type="{{ form.one.field.widget.input_type }}"
+                        name="{{ form.one.name }}"
+                        id="{{ form.one.id_for_label }}"
+                        class="px-3 py-2 border rounded-md w-full focus:outline-none focus:ring focus:border-blue-500"
+                        placeholder="Enter your first thing grateful for"
+                    >
+                </div>
+                <div class="mb-4">
+                    <label for="{{ form.two.id_for_label }}" class="block text-md font-medium text-gray-700"></label>
+                    <input
+                        type="{{ form.two.field.widget.input_type }}"
+                        name="{{ form.two.name }}"
+                        id="{{ form.two.id_for_label }}"
+                        class="px-3 py-2 border rounded-md w-full focus:outline-none focus:ring focus:border-blue-500"
+                        placeholder="Enter your second thing grateful for"
+                    >
+                </div>
+                <div class="mb-4">
+                    <label for="{{ form.three.id_for_label }}" class="block text-md font-medium text-gray-700"></label>
+                    <input
+                        type="{{ form.three.field.widget.input_type }}"
+                        name="{{ form.three.name }}"
+                        id="{{ form.three.id_for_label }}"
+                        class="px-3 py-2 border rounded-md w-full focus:outline-none focus:ring focus:border-blue-500"
+                        placeholder="Enter your third thing grateful for"
+                    >
+                </div>
+                <div class="mb-4">
+                    <label for="{{ form.four.id_for_label }}" class="block text-md font-medium text-gray-700"></label>
+                    <input
+                        type="{{ form.four.field.widget.textarea_type }}"
+                        name="{{ form.four.name }}"
+                        id="{{ form.four.id_for_label }}"
+                        class="px-3 py-2 border rounded-md w-full focus:outline-none focus:ring focus:border-blue-500"
+                        placeholder="Enter your one accomplishment today"
+                    >
+                </div>
+                <div class="mb-4">
+                    <label for="{{ form.image.id_for_label }}" class="block text-md font-medium text-gray-700">Upload Image</label>
+                    <input
+                        type="{{ form.image.field.widget.input_type }}"
+                        name="{{ form.image.name }}"
+                        id="{{ form.image.id_for_label }}"
+                        class="hidden" >
+                    <label for="{{ form.image.id_for_label }}" class="relative cursor-pointer inline-block bg-gray-100 hover:bg-gray-200 px-4 py-2 border rounded-md w-full text-center text-accent border-accent">
+                        Select an Image
+                    </label>
+                </div>
+                <button class="bg-accent hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline-blue active:bg-blue-700 mt-4">Create</button>
+            </form>
+        </div>
     </div>
-</main>
-</body>
-</html>
+    {% endblock content %}

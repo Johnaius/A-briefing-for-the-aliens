@@ -10,7 +10,6 @@ class GratitudeForm(ModelForm):
             'two',
             'three',
             'four',
-            'five',
             'image',
         )
 
