@@ -8,6 +8,11 @@
 <main class="bg-gray-100 min-h-screen flex items-center justify-center py-8">
     <div class="bg-white p-8 rounded shadow-lg w-96">
         <h1 class="text-3xl font-bold text-black">{{ thanks.title }}</h1>
+
+        <span class="inline-flex items-center space-x-1">
+            <a href="{% url 'thanks_delete' thanks.id %}" class="text-red-500 hover:text-red-700">Delete</a>
+        </span>
+        
         <img src="{{ thanks.image.url }}" alt="{{ thanks.title }}" class="mt-4 w-3/4">
         <div class="mt-2 text-gray-600">By: {{ thanks.owner }}</div>
         <p class="mt-4">
@@ -23,6 +28,7 @@
             <p class="text-black">{{ thanks.three }}</p>
             <p class="font-semibold text-gray-600">One thing accomplished today:</p>
             <p class="text-black">{{ thanks.four }}</p>
+            
         </div>
     </div>
 </main>

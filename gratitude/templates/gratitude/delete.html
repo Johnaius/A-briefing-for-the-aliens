@@ -1,0 +1,26 @@
+{% extends 'homebase.html' %}
+
+{% block title %}
+    Delete Gratitude
+{% endblock title %}
+{% block content %}
+      {% load static %}
+      <div class="bg-gray-100 min-h-screen flex items-center justify-center">
+        <main class="bg-white p-8 rounded shadow-lg w-96">
+            <div>
+                <h1 class="text-3xl font-bold text-black mb-4">Are you sure?</h1>
+                <form method="post">
+                    {% csrf_token %}
+                    <button class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline-red active:bg-red-700">
+                        Delete
+                    </button>
+                </form>
+                <a href="{% url 'thanks_list' %}">
+                    <button class="bg-accent hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline-red active:bg-red-700">
+                    Go back
+                    </button>
+                </a>
+            </div>
+        </main>
+    </div>
+{% endblock content %}

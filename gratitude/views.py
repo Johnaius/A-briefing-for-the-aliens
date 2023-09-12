@@ -15,6 +15,7 @@ def create_thanks(request):
     if request.method == "POST":
         form = GratitudeForm(request.POST, request.FILES)
         if form.is_valid():
+            form.instance.owner = request.user
             print("Hurrah! form worked")
             form.save() 
          
@@ -59,3 +60,15 @@ def show_detail(request, id):
     }
     # render HTML with data in contexts
     return render(request, "gratitude/detail.html", context)
+
+def thanks_delete(request,id):
+  thanks= Gratitude.objects.get(id=id)
+  if request.method == "POST":
+    thanks.delete()
+    return redirect("thanks_list")
+  
+  context ={
+    "thanks" : thanks
+  }
+
+  return render(request, "gratitude/delete.html", context)
