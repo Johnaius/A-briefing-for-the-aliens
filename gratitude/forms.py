@@ -11,6 +11,7 @@ class GratitudeForm(ModelForm):
             'three',
             'four',
             'image',
+            
         )
 
 

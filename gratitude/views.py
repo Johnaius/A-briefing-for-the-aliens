@@ -21,7 +21,7 @@ def create_thanks(request):
             return redirect('thanks_list') 
     else:
         form = GratitudeForm()
-        print("fail!")
+        print("heres the form")
     context = {
         'form' : form,
         
