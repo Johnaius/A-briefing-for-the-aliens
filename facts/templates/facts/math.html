@@ -9,7 +9,7 @@
 <a href="{% url 'cat_fact' %}" class="refresh"><button>Cats!</button></a>
 {% endblock navlink %}
 {% block content %}
-        <script>
+        <!-- <script>
             document.getElementById('userInput').addEventListener('input', function() {
                 const userInput = parseInt(this.value);
                 const answer = {{ answer }};  // Access the answer from the view
@@ -20,7 +20,7 @@
                     this.style.color = '';  // Reset font color for incorrect answer
                 }
             });
-        </script>
+        </script> -->
         
         <title>Math for the Little Ones</title>
     </head>
@@ -33,16 +33,15 @@
             <div class="math-problems">
                 {% for problem in problems %}
                     <div class="problem" data-problem-id="{{ problem.id }}">
-                        <div class="top-number">{{ problem.num1 }}</div>
-                        
-                        <div class="bottom-number">+{{ problem.num2 }}</div>
-                        <hr class="bottom-line"> <!-- Add a horizontal line beneath the bottom number -->
-                        {{ problem.user_response }}
-                        <div class="bottom-number">
-                            <input id="userInput" type="number" name="response{{ problem.id }}" value="{{ problem.user_response }}">
-                            <p hidden>{{  problem.answer }}</p>
-                            </div>
-                    </div>
+    <div class="text-2xl font-bold top-number">{{ problem.num1 }}</div>
+    <div class="text-xl bottom-number">+{{ problem.num2 }}</div>
+    <hr class="my-2 border-t-2 border-gray-300"> <!-- Add a horizontal line beneath the bottom number -->
+    {{ problem.user_response }}
+    <div class="mt-2">
+        <input id="userInput" type="number" name="response{{ problem.id }}" value="{{ problem.user_response }}" class="border border-gray-300 p-2 rounded-lg">
+        <p hidden>{{ problem.answer }}</p>
+    </div>
+</div>
                 {% endfor %}
             </div>
             <input type="submit" value="Submit">

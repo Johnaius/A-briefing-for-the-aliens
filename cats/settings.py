@@ -35,6 +35,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'comments.apps.CommentsConfig',
     'accounts.apps.AccountsConfig',
     'gratitude.apps.GratitudeConfig',
     'facts.apps.FactsConfig',
